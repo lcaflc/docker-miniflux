@@ -33,10 +33,10 @@ docker run -d --name miniflux -p 80:80 -t lcaflc/miniflux:latest
 Using persistence volume need that data folder initialised before and have the correct credentials:
 ```bash
 MF_DATA=~/miniflux-data
-mkdir $MF_DATA
-mkdir ${MF_DATA}/{archive,backup,download,favicons}
-echo "Deny from all" > $MF_DATA/.htaccess
-chmod -R +rX $MF_DATA
+cd /tmp
+curl -o - https://codeload.github.com/miniflux/miniflux/tar.gz/master | tar zxvf - miniflux-master/data
+mv miniflux-master/data $MF_DATA
+chmod -R og+rX $MF_DATA
 chown -R 33:33 $MF_DATA
 docker run -d --name miniflux -v ${MF_DATA}:/var/www/html/data -p 80:80 -t lcaflc/miniflux:latest
 ```
