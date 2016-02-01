@@ -1,5 +1,9 @@
-Improved Miniflux Docker image
-==============================
+lcaflc/miniflux
+===============
+
+[![](https://badge.imagelayers.io/lcaflc/miniflux:latest.svg)](https://imagelayers.io/?images=lcaflc/miniflux:latest 'Get your own badge on imagelayers.io')
+
+Improved Miniflux Docker container.
 
 Miniflux
 --------
@@ -9,8 +13,6 @@ Project Homepage is here: <https://miniflux.net/>.
 
 Features
 --------
-
-[![](https://badge.imagelayers.io/lcaflc/miniflux:latest.svg)](https://imagelayers.io/?images=lcaflc/miniflux:latest 'Get your own badge on imagelayers.io')
 
 This image is build on top of official [docker php image](https://hub.docker.com/_/php/). Curently using php:5-apache branch.
 
@@ -51,3 +53,10 @@ chmod -R og+rX $MF_DATA
 chown -R 33:33 $MF_DATA
 docker run -d --name miniflux -v ${MF_DATA}:/var/www/html/data -p 80:80 -t lcaflc/miniflux:latest
 ```
+
+
+
+License
+-------
+
+This repo is published under the [GPLv3 License](http://opensource.org/licenses/GPL-3.0)
