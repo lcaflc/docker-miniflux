@@ -18,7 +18,18 @@ Like the official image it features integrated sqlite database and is self conta
 
 This image curently track only HEAD on miniflux master branch. Tracking of released versions will come in the near future.
 
-Also to be included in the near future is the integration in this image of various miniflux themes available, at least all the official ones.
+A set of themes is by default shipped inside this container. The curently installed one are:
+- [Bootstrap Light by Silvus](https://github.com/miniflux/theme-bootstrap-light)
+- [Bootswatch Cyborg by Silvus](https://github.com/miniflux/theme-bootswatch-cyborg)
+- [Cards by Augustin Lacour](https://github.com/miniflux/theme-cards)
+- [Copper by Nicolas Dewaele](https://github.com/miniflux/theme-copper)
+- [Green by Maxime](https://github.com/miniflux/theme-green)
+- [Hello by Mirado ZAKASOA](https://github.com/meradoou/hello)
+- [Hello Flat by Mirado ZAKASOA](https://github.com/meradoou/hello/tree/flat)
+- [Midnight by Luca Marra](https://github.com/miniflux/theme-midnight)
+- [NoStyle by Frederic Guillot](https://github.com/miniflux/theme-nostyle)
+- [Still by Franklin Delehelle](https://github.com/miniflux/theme-still)
+- [Sun by Alexander Mangel](https://github.com/cygnusfear/miniflux-theme-sun)
 
 Usage
 -----
