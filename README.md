@@ -1,8 +1,6 @@
 Improved Miniflux Docker image
 ==============================
 
-This is an improved docker image for Miniflux.
-
 Miniflux
 --------
 
@@ -11,6 +9,8 @@ Project Homepage is here: <https://miniflux.net/>.
 
 Features
 --------
+
+[![](https://badge.imagelayers.io/lcaflc/miniflux:latest.svg)](https://imagelayers.io/?images=lcaflc/miniflux:latest 'Get your own badge on imagelayers.io')
 
 This image is build on top of official [docker php image](https://hub.docker.com/_/php/). Curently using php:5-apache branch.
 
