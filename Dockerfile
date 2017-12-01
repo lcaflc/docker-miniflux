@@ -19,6 +19,7 @@ RUN rm -rf $APPDIR
 RUN cd /var/www \
   && git clone --depth 1 https://github.com/miniflux/miniflux.git \
   && mv /var/www/miniflux $APPDIR \
+  && mkdir $APPDIR/data \
   && chown -R www-data:www-data $APPDIR/data
 WORKDIR $APPDIR
 
