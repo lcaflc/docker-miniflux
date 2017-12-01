@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y git
 # add needed php modules
 RUN apt-get install -y libsqlite3-dev libcurl4-gnutls-dev && docker-php-ext-install -j$(nproc) mbstring iconv pdo_sqlite curl
 
+# Configure php
+COPY php-local.conf /usr/local/etc/php/conf.d/
+
 # installing app
 ENV APPDIR /var/www/html
 RUN cd /var/www \
