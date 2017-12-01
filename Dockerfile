@@ -17,8 +17,8 @@ COPY php-local.conf /usr/local/etc/php/conf.d/
 ENV APPDIR /var/www/html
 RUN rm -rf $APPDIR 
 RUN cd /var/www \
-  && git clone --depth 1 https://github.com/miniflux/miniflux.git
-  && mv /var/www/miniflux $APPDIR
+  && git clone --depth 1 https://github.com/miniflux/miniflux.git \
+  && mv /var/www/miniflux $APPDIR \
   && chown -R www-data:www-data $APPDIR/data
 WORKDIR $APPDIR
 
@@ -35,7 +35,7 @@ RUN cd themes \
   && git clone https://github.com/meradoou/hello.git \
   && git clone -b flat https://github.com/meradoou/hello.git hello-flat \
   && git clone https://github.com/Cygnusfear/Miniflux-Theme-Sun.git \
-  && git clone https://github.com/lacereation/minflux-theme.git /tmp/emm && mv /tmp/emm/themes/* . && rm -rf /tmp/emm
+  && git clone https://github.com/lacereation/minflux-theme.git /tmp/emm && mv /tmp/emm/themes/* . && rm -rf /tmp/emm \
   && git clone https://github.com/meradoou/yonta.git
 
 VOLUME /var/www/html/data
