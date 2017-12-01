@@ -15,19 +15,19 @@ COPY php-local.conf /usr/local/etc/php/conf.d/
 
 # installing app
 ENV APPDIR /var/www/html
-RUN rm -rf $APPDIR 
-RUN cd /var/www \
+RUN rm -rf $APPDIR \
+  && cd /var/www \
   && git clone --depth 1 https://github.com/miniflux/miniflux.git \
   && mv /var/www/miniflux $APPDIR \
-  && mkdir $APPDIR/data \
   && chown -R www-data:www-data $APPDIR/data
+
 WORKDIR $APPDIR
 
 # installing themes
-RUN cd themes \
+RUN cd $APPDIR/themes \
   && git clone https://github.com/miniflux/theme-bootstrap-light.git \
   && git clone https://github.com/miniflux/theme-bootswatch-cyborg.git \
-  && git clone https://github.com/miniflux/theme-cards.git \
+#  && git clone https://github.com/miniflux/theme-cards.git \
   && git clone https://github.com/miniflux/theme-nostyle.git \
   && git clone https://github.com/miniflux/theme-still.git \
   && git clone https://github.com/miniflux/theme-green.git \
@@ -39,4 +39,4 @@ RUN cd themes \
   && git clone https://github.com/lacereation/minflux-theme.git /tmp/emm && mv /tmp/emm/themes/* . && rm -rf /tmp/emm \
   && git clone https://github.com/meradoou/yonta.git
 
-VOLUME /var/www/html/data
+VOLUME $APPDIR/data
