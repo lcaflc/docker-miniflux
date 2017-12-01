@@ -28,6 +28,7 @@ RUN cd $APPDIR/themes \
   && git clone https://github.com/miniflux/theme-bootstrap-light.git \
   && git clone https://github.com/miniflux/theme-bootswatch-cyborg.git \
 #  && git clone https://github.com/miniflux/theme-cards.git \
+  && git clone https://github.com/lcaflc/miniflux-theme-cards.git \
   && git clone https://github.com/miniflux/theme-nostyle.git \
   && git clone https://github.com/miniflux/theme-still.git \
   && git clone https://github.com/miniflux/theme-green.git \
