@@ -7,16 +7,19 @@ RUN apt-get update && apt-get install -y git
 # add needed php modules
 RUN apt-get install -y libsqlite3-dev libcurl4-gnutls-dev && docker-php-ext-install -j$(nproc) mbstring iconv pdo_sqlite curl
 
+# cleanup
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Configure php
 COPY php-local.conf /usr/local/etc/php/conf.d/
 
 # installing app
 ENV APPDIR /var/www/html
+RUN rm -rf $APPDIR 
 RUN cd /var/www \
   && git clone --depth 1 https://github.com/miniflux/miniflux.git
-RUN rm -rf $APPDIR \
   && mv /var/www/miniflux $APPDIR
-RUN chown -R www-data:www-data $APPDIR/data
+  && chown -R www-data:www-data $APPDIR/data
 WORKDIR $APPDIR
 
 # installing themes
@@ -33,9 +36,5 @@ RUN cd themes \
   && git clone -b flat https://github.com/meradoou/hello.git hello-flat \
   && git clone https://github.com/Cygnusfear/Miniflux-Theme-Sun.git \
   && git clone https://github.com/lacereation/minflux-theme.git /tmp/emm && mv /tmp/emm/themes/* . && rm -rf /tmp/emm
-
-
-# cleanup
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 VOLUME /var/www/html/data
