@@ -36,5 +36,6 @@ RUN cd themes \
   && git clone -b flat https://github.com/meradoou/hello.git hello-flat \
   && git clone https://github.com/Cygnusfear/Miniflux-Theme-Sun.git \
   && git clone https://github.com/lacereation/minflux-theme.git /tmp/emm && mv /tmp/emm/themes/* . && rm -rf /tmp/emm
+  && git clone https://github.com/meradoou/yonta.git
 
 VOLUME /var/www/html/data
